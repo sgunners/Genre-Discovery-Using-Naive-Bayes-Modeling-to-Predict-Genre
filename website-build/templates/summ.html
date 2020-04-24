@@ -1,0 +1,102 @@
+<!DOCTYPE HTML>
+<!--
+	Stellar by HTML5 UP
+	html5up.net | @ajlkn
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
+<html>
+	<head>
+		<title>Genre Discovery</title>
+		<script src='https://cdnjs.cloudflare.com/ajax/libs/Chart.js/1.0.2/Chart.min.js'></script>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<link rel="stylesheet" href="static/assets/css/main.css" />
+		<noscript><link rel="stylesheet" href="static/assets/css/noscript.css" /></noscript>
+		<script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+	</head>
+	<body class="is-preload">
+
+		<!-- Wrapper -->
+			<div id="wrapper">
+
+				<!-- Header -->
+					<header id="header">
+						<h1>Genre Discovery - Summaries</h1>
+						<p>Samantha Gunnerson</p>
+					</header>
+
+                <!-- Nav -->
+					<nav id="nav">
+						<ul>
+							<li><a href="index.html">Twitter Test</a></li>
+							<li><a href="summ.html" class="active">Summary Test</a></li>
+							<li><a href="project_write.html">Full Project</a></li>
+						</ul>
+					</nav>
+
+				<!-- Main -->
+					<div id="main">
+
+						<!-- Content -->
+							<section id="content" class="main">
+								<center>
+								<header class="major">
+									<h2>{{results}}</h2>
+								</header>
+								<p>{{ text_out }}</p>
+								<p>{{fic_nonfic_text}}</p>
+								{{hrs|safe}}
+								<h3><b>{{prob_text}}</b></h3>
+								{{graph_js | safe}}
+                                        <script>
+                                        	trace1 = {name: '', type: 'bar', x: [{% for item in x_data %}{{ item }},{% endfor %}], y: [{% for item in y_data %}"{{ item }}",{% endfor %}], marker: {line: {color: 'rgb(14,17,22)'},color: 'rgb(129,92,146)'}, orientation: 'h'};
+                                        	data = [trace1];
+                                            layout = {title: {x: 0.5, y: 0.95, text: 'Most Probable Genres', xanchor: 'center', yanchor: 'top'}, xaxis: {title: {text: 'Probability'}, anchor: 'y', domain: [0.0, 1.0]}, yaxis: {title: {text: ''}, anchor: 'x', domain: [0.0, 1.0]}, margin: {t: 60, l:160}, barmode: 'relative'};
+                                            Plotly.plot('plotly-div', {data: data,layout: layout});
+                                        </script>
+                                {{hrs|safe}}
+                                <h3>{{word_title}}</h3>
+                                <p>{{word_text[0]}}</p>
+                                <p>{{word_text[1]}}</p>
+                                <center>{{chart}}</center>
+                                {{hrs|safe}}
+								<p>Enter any chunk of text below to analyze it's genre</p>
+								<form method="post" action="#">
+									<div class="row gtr-uniform">
+										<div class="col-12">
+											<input type = "text" name="text_in" id="text_in" placeholder="Enter your text"/>
+										</div>
+									</div>
+								</form>
+								</center>
+
+							</section>
+
+					</div>
+
+				<!-- Footer -->
+					<footer id="footer">
+						<section>
+							<h2>Genre Discovery</h2>
+							<p>Created by Samantha Gunnerson, 2020</p>
+							<ul class="icons">
+													<li><a href="https://github.com/sgunners" class="icon brands alt fa-github"><span class="label">GitHub</span></a></li>
+													<li><a href="https://www.linkedin.com/in/samantha-gunnerson/samantha-gunnerson" class="icon brands fa-linkedin-in"><span class="label">Linkedin</span></a></li>
+							</ul>
+						</section>
+						<p class="copyright">&copy; Genre Discovery. Design: <a href="https://html5up.net">HTML5 UP</a>.</p>
+					</footer>
+
+			</div>
+
+		<!-- Scripts -->
+			<script src="static/assets/js/jquery.min.js"></script>
+			<script src="static/assets/js/jquery.scrollex.min.js"></script>
+			<script src="static/assets/js/jquery.scrolly.min.js"></script>
+			<script src="static/assets/js/browser.min.js"></script>
+			<script src="static/assets/js/breakpoints.min.js"></script>
+			<script src="static/assets/js/util.js"></script>
+			<script src="static/assets/js/main.js"></script>
+
+	</body>
+</html>
