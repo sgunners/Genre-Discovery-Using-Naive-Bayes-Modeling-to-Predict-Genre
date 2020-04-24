@@ -1,0 +1,120 @@
+<!DOCTYPE HTML>
+<!--
+	Stellar by HTML5 UP
+	html5up.net | @ajlkn
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
+<html>
+	<head>
+		<title>Genre Discovery</title>
+		<script src='https://cdnjs.cloudflare.com/ajax/libs/Chart.js/1.0.2/Chart.min.js'></script>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<link rel="stylesheet" href="static/assets/css/main.css" />
+		<noscript><link rel="stylesheet" href="static/assets/css/noscript.css" /></noscript>
+		<script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+	</head>
+	<body class="is-preload">
+
+		<!-- Wrapper -->
+			<div id="wrapper">
+
+				<!-- Header -->
+					<header id="header" class="alt">
+						<h1>What Genre Do You Write It</h1>
+						<p>Machine Learning for Genre Discovery</p>
+						<p>By Samantha Gunnerson</p>
+						<h1><b>{{text_scroll}}</b></h1>
+					</header>
+
+				<!-- Nav -->
+					<nav id="nav">
+						<ul>
+							<li><a href="#intro" class="active">Twitter Test</a></li>
+							<li><a href="summ.html">Summary Test</a></li>
+							<li><a href="project_write.html">Full Project</a></li>
+						</ul>
+					</nav>
+
+				<!-- Main -->
+					<div id="main">
+
+						<!-- Test It Yourself -->
+							<section id="intro" class="main">
+								<div class="spotlight">
+									<div class="content">
+									    <center>
+										<header class="major">
+											<h2>{{results}}</h2>
+										</header>
+										<h2>{{error_text}}</h2>
+										{{top_text[0] | safe}}
+										{{top_text[1] | safe}}
+										{{top_text[2] | safe}}
+										{{top_text[3] | safe}}
+										{{top_text[4] | safe}}
+										{{top_text[2] | safe}}
+                                        <p>{{initial_twitter_text[2]}}</p>
+                                        {{html_strings[0] | safe}}
+                                        {{hrs|safe}}
+                                        <h3><b>{{prob_text}}</b></h3>
+                                        {{graph_js | safe}}
+                                        <script>
+                                        	trace1 = {name: '', type: 'bar', x: [{% for item in x_data %}{{ item }},{% endfor %}], y: [{% for item in y_data %}"{{ item }}",{% endfor %}], marker: {line: {color: 'rgb(14,17,22)'},color: 'rgb(129,92,146)'}, orientation: 'h'};
+                                        	data = [trace1];
+                                            layout = {title: {x: 0.5, y: 0.95, text: 'Most Probable Genres', xanchor: 'center', yanchor: 'top'}, xaxis: {title: {text: 'Probability'}, anchor: 'y', domain: [0.0, 1.0]}, yaxis: {title: {text: ''}, anchor: 'x', domain: [0.0, 1.0]}, margin: {t: 60, l:160}, barmode: 'relative'};
+                                            Plotly.plot('plotly-div', {data: data,layout: layout});
+                                        </script>
+                                        {{hrs|safe}}
+                                        <h3><b>{{word_title}}</b></h3>
+                                        <p>{{word_text[0]}}</p>
+                                        <p>{{word_text[1]}}</p>
+                                        <center>{{chart}}</center>
+                                        {{hrs|safe}}
+
+										<h4>{{main_text1}}<b>{{main_text2}}</b></h4>
+											<form method="post" action="#">
+												<div class="row gtr-uniform">
+													<div class="col-12">
+														<input type = "text" name="text_in" id="text_in" placeholder="Enter your text"/>
+													</div>
+												</div>
+											</form>
+										<p>Or, try one of these accounts:</p>
+										</center>
+										<ul class="actions fit">
+											<li><a href="barack_obama.html" class="button fit">Barack Obama</a></li>
+											<li><a href="goodcaptain.html" class="button fit">A Good Captain</a></li>
+											<li><a href="mayoremanuel.html" class="button fit">Mayor Emanuel Parody</a></li>
+										</ul>
+                                    </div>
+								</div>
+							</section>
+					</div>
+
+				<!-- Footer -->
+					<footer id="footer">
+						<section>
+							<h2>Genre Discovery</h2>
+							<p>Created by Samantha Gunnerson, 2020</p>
+							<ul class="icons">
+													<li><a href="https://github.com/sgunners" class="icon brands alt fa-github"><span class="label">GitHub</span></a></li>
+													<li><a href="https://www.linkedin.com/in/samantha-gunnerson/samantha-gunnerson" class="icon brands fa-linkedin-in"><span class="label">Linkedin</span></a></li>
+							</ul>
+						</section>
+						<p class="copyright">&copy; Genre Discovery. Design: <a href="https://html5up.net">HTML5 UP</a>.</p>
+					</footer>
+
+			</div>
+
+		<!-- Scripts -->
+			<script src="static/assets/js/jquery.min.js"></script>
+			<script src="static/assets/js/jquery.scrollex.min.js"></script>
+			<script src="static/assets/js/jquery.scrolly.min.js"></script>
+			<script src="static/assets/js/browser.min.js"></script>
+			<script src="static/assets/js/breakpoints.min.js"></script>
+			<script src="static/assets/js/util.js"></script>
+			<script src="static/assets/js/main.js"></script>
+
+	</body>
+</html>
