@@ -1,0 +1,97 @@
+<!DOCTYPE HTML>
+<!--
+	Stellar by HTML5 UP
+	html5up.net | @ajlkn
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
+<html>
+	<head>
+		<title>Genre Discovery</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<link rel="stylesheet" href="static/assets/css/main.css" />
+		<noscript><link rel="stylesheet" href="static/assets/css/noscript.css" /></noscript>
+	</head>
+	<body class="is-preload">
+
+		<!-- Wrapper -->
+			<div id="wrapper">
+
+				<!-- Header -->
+					<header id="header">
+						<h1>Genre Discovery: Using Naive Bayes Modeling to Predict Genre</h1>
+					</header>
+
+                <!-- Nav -->
+					<nav id="nav">
+						<ul>
+							<li><a href="index.html">Test It Yourself</a></li>
+							<li><a href="summ.html">Summary Test</a></li>
+							<li><a href="project_write.html" class="active">Full Project</a></li>
+						</ul>
+					</nav>
+
+				<!-- Main -->
+					<div id="main">
+
+						<!-- Content -->
+							<section id="content" class="main">
+							    <h1>Genre Discovery: Using Naive Bayes Modeling to Predict Genre</h1>
+							    <p>Modelling language is a large field with many applications to understanding not only how people are writing, but what they are writing about. It can be used to analyze the culture, mythos or ideas that are common in a group of people. Modelling language can also be used to analyze how we write, with the labeling of text presenting a major problem to companies today. While this analysis is a fun application of natural language processing, it represents some of the larger challenges common in labeling data. As more and more text data is produced in places like social media, and in journalism, the need for these types of analyses are more important.</p>
+							    <p>Genre has been a way of sorting various forms of art since Ancient Greece. It can describe form (such as poetry, or biography), audience (for example young adult or children’s literature), or most abstractly, a set of cultural expectations of a body of works. For example, science fiction is a genre well known for focusing on potential what ifs of science. If could be the power of science in a police state, such as in George Orwell’s 1984. It could be, and more commonly is, space travel, in works like Star Trek. These cultural norms can also be part of the form of the genre, with genres like mystery that are based on a common plot point ( in this case solving a mystery).</p>
+							    <p>Thus, genre presents a unique classification problem. Not only is genre often poorly defined, it is often mixed together within a work in order to create a new sub genre. For instance, the Harry Potter series is fantasy, for it’s magical elements, but it is also children’s literature, as the main characters are all children for a majority of the books. This amalgamation of genre creates interesting challenges to machine learning, as a single set of features can represent many different labels.</p>
+								<hr />
+								<h2><b>Initial Data Processing and Analysis</b></h2>
+								<p>The dataset, originally from the work of David Bamman and Noah Smith at Carnegie Melon University, pulled 16,559 summaries of books from Wikipedia, along with the author, title and Wikipedia summary. It also includes a list of genres, pulled from Freebase, for each book.</p>
+								<p>Initially, these genres were cleaned to be readable, and then investigated in two categories. The first are genres of form, such as memoirs, biographies and novels. These are forms that are more about how the work is written instead of the content. These genres can be used to sort a subset of the data into fiction and non-fiction based on the forms. The second are genres of content, such as science fiction, fantasy, or horror. These genres were broadened to include works that fell into sub categories in order to more broadly categorize the works. For example, sword and planet is a subgenre of science fiction, so works labelled as sword and planet were tagged into science fiction in order to provide larger genre categories.</p>
+								<hr />
+								<h2><b>Models, Predictive Words and Word Clouds</b></h2>
+								<p>In order to appropriately model the data for each genre, it was cleaned in a series of steps. After correctly interpreting the genres and separating them out from each other (as done for the initial analysis), the summaries were cleaned to remove proper nouns and punctuation. Proper nouns were removed in order to prevent common character names, especially those from series, or common names in general, from affecting the model. These values were then vectorized using both a count vectorizer and Tfidf, in order to assess which would be better for model performance. In all cases, the count vectorizer was either equivalent or better, and it always had a smaller difference in accuracy between the training and testing sets. </p>
+								<hr />
+								<h3><b>Below is a selection of the word clouds generated for this project. For information, go to the bottom for a link to the full report.</b></h3>
+								<p><span class="image left"><img src="static/images/mys_wc.png"/></span> All of the indicative words in mystery fit the common tropes of the genre, with the common people of murderer, detective and lawyer as well as the common ideas like investigation, case and crime. From the words that are not indicative, it can be posited that there is not a lot of cross over between mystery and science fiction, as many of the science fiction words are not indicative of mystery.</p>
+								<hr />
+								<p><span class="image right"><img src="static/images/hist_wc.png"/></span> Historical fiction often deals in the relationship of governments, so french, english, political and british all fit that trope. The indicative words also include slave, which may indicate the era that many of the summaries in the data set were placed in, as well as soldier, which may indicate a common setting as well.</p>
+								<hr />
+								<p><span class="image left"><img src="static/images/hor_wc.png"/></span> Horror deals with the moment of death more than some of the other genres, with words like blood and kill in its top ten. It also builds tension, with words like trap, reveals, fear and strange. Finally, a commonly used character in the summaries of the set was the vampire, making it very indicative of this genre. Horror doesn’t tend to include police, or war, unlike some of the other genres before it.</p>
+								<hr />
+								<h2><b>Conclusion</b></h2>
+								<p>The genre analysis above has a distinct lack of surprises that speaks to some of the overarching truths about genre. While genre itself is often hard to define, as are the tropes that drive them, the language used is much easier to spot. In all of the word clouds produced by this analysis, almost all of the words included fit the basic ideas of the genre they represent. And all of them can easily be connected to themes often seen in their specific genre. This shows how genre may be a bit amorphis, but the how of genre is not. The language of genres is common across thousands of summaries, despite being written by likely thousands of different people. Thus the consistency of the results would seem to suggest that the way Western culture presents genre has become a common language in of itself. It speaks to the norms of a culture when there is so much consistency between how we present the same broader themes and ideas.</p>
+								<p>From this analysis, there are a few potential routes of further analysis. First would be to get actual text from literature and use it to predict genre. There may be more variability from author to author, as the conventions and idiosyncrasies of the writer affect the word choice. It may also be found that the common language found in this analysis would be further cemented by the addition of longer text examples. Another possible route of analysis could be to apply this same framework to summaries in other languages. It may be found that the concepts in those languages follow a similar pattern of common sense answers. It may also be found that they show similarities and differences to English, and may also have their own large genres that are distinctive from those genre common in English based media.</p>
+							</section>
+							<footer class="major">
+							    <center><p>For more information, or the full report:</p></center>
+							    <ul class="actions special">
+							        <li><a href="https://github.com/sgunners/Springboard/tree/master/Capstone%202" class="button">Github Repository</a></li>
+							        <li><a href="https://gdoc.pub/doc/e/2PACX-1vQ0uj7iXBUjyXnRQC6rKcvLe4ZUVwXmjwNRkiqDsSU1oaqtYUI-SqKund472OV_go_GqnSBtevt09Na" class="button">Final Report</a></li>
+							    </ul>
+							</footer>
+
+					</div>
+
+				<!-- Footer -->
+					<footer id="footer">
+						<section>
+							<h2>Genre Discovery</h2>
+							<p>Created by Samantha Gunnerson, 2020</p>
+							<ul class="icons">
+													<li><a href="https://github.com/sgunners" class="icon brands alt fa-github"><span class="label">GitHub</span></a></li>
+													<li><a href="https://www.linkedin.com/in/samantha-gunnerson/samantha-gunnerson" class="icon brands fa-linkedin-in"><span class="label">Linkedin</span></a></li>
+							</ul>
+						</section>
+						<p class="copyright">&copy; Genre Discovery. Design: <a href="https://html5up.net">HTML5 UP</a>.</p>
+					</footer>
+
+			</div>
+
+		<!-- Scripts -->
+			<script src="static/assets/js/jquery.min.js"></script>
+			<script src="static/assets/js/jquery.scrollex.min.js"></script>
+			<script src="static/assets/js/jquery.scrolly.min.js"></script>
+			<script src="static/assets/js/browser.min.js"></script>
+			<script src="static/assets/js/breakpoints.min.js"></script>
+			<script src="static/assets/js/util.js"></script>
+			<script src="static/assets/js/main.js"></script>
+
+	</body>
+</html>
