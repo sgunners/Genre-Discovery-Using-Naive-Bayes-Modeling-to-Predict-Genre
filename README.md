@@ -4,4 +4,4 @@ Genre presents a unique classification problem, so this anaylsis strives to use 
 
 This analysis uses a dataset created at Carnegie Melon from 16,559 summaries from Wikipedia, combined with Freebase information, like genre, and ISBN. It uses a bag of words approach along with Naive Bayes in order to create a fast model to analyze new pieces of text. 
 
-For more information, read the full report above. To test the model yourself, go to sgunners.pythonanywhere.com
+For more information, read the full report above. To test the model yourself, go to [sgunners.pythonanywhere.com](http://sgunners.pythonanywhere.com)
