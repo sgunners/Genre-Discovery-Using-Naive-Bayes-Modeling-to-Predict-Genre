@@ -107,11 +107,11 @@ def final_text_model(test_text):
     return value, df, wordcloud, best_genre
 
 
-#twitter keys
-consumer_key = 'iSA43CSuXJs6UWXkUwyex7On2'
-consumer_secret = 'kP8yVckOZCFHkvaBVQVEUj9K9fYbwaIVkNvCT9GU82rEMM2hHd'
-access_token = '69027380-LmkX7xyQ7OrYBRVlggtzrBBGs5d9RkCOYBHA0rlaS'
-access_token_secret = 'aqUWlbfkPpO0B8PXo0atldDHfUOwX88P1najIThRqmXbj'
+#twitter keys (ADD correct values here as needed!)
+consumer_key = 
+consumer_secret = 
+access_token = 
+access_token_secret = 
 
 
 auth = tw.OAuthHandler(consumer_key, consumer_secret)
